@@ -25,4 +25,12 @@ public class Producto extends Base {
     @Builder.Default
     private Set<Compra> compras = new HashSet<>();
 
+    @ManyToOne
+    @JoinColumn(name = "marca")
+    private Marca marca;
+
+    @ManyToOne
+    @JoinColumn(name = "unidad_medida")
+    private UnidadMedida unidadMedida;
+
 }

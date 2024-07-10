@@ -17,6 +17,8 @@ import java.util.Set;
 public class Compra extends Base {
 
     private LocalDate fecha;
+    private double precio;
+    private double cantidad;
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
