@@ -23,6 +23,7 @@ public abstract class Base implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    protected long id;
+    protected boolean eliminado;
 
 }
