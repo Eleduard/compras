@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -17,9 +15,8 @@ import java.util.Set;
 public class Compra extends Base {
 
     private LocalDate fecha;
-    private double precio;
-    private double cantidad;
 
+    /*
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "compra_producto",
@@ -28,5 +25,6 @@ public class Compra extends Base {
     )
     @Builder.Default
     private Set<Producto> productos = new HashSet<>();
+     */
 
 }

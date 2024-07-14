@@ -21,9 +21,9 @@ public class Producto extends Base {
     @JoinColumn(name = "subcategoria")
     private Subcategoria subcategoria;
 
-    @ManyToMany(mappedBy = "productos", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    /*@ManyToMany(mappedBy = "productos", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @Builder.Default
-    private Set<Compra> compras = new HashSet<>();
+    private Set<Compra> compras = new HashSet<>();*/
 
     @ManyToOne
     @JoinColumn(name = "marca")
