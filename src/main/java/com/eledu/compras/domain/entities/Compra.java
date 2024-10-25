@@ -16,6 +16,10 @@ public class Compra extends Base {
 
     private LocalDate fecha;
 
+    @ManyToOne
+    @JoinColumn(name = "comercio")
+    private Comercio comercio;
+
     /*
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(

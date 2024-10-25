@@ -3,9 +3,6 @@ package com.eledu.compras.domain.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,14 +13,17 @@ import java.util.Set;
 public class Producto extends Base {
 
     private String nombreProducto;
+    private String descripcion;
+    private double cantidadPorEnvase;
+    private boolean esSinTacc;
 
     @ManyToOne
-    @JoinColumn(name = "subcategoria")
-    private Subcategoria subcategoria;
+    @JoinColumn(name = "tipo_envase")
+    private TipoEnvase tipoEnvase;
 
-    /*@ManyToMany(mappedBy = "productos", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @Builder.Default
-    private Set<Compra> compras = new HashSet<>();*/
+    @ManyToOne
+    @JoinColumn(name = "categoria")
+    private Categoria categoria;
 
     @ManyToOne
     @JoinColumn(name = "marca")

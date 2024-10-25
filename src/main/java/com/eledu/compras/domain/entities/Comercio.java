@@ -10,9 +10,9 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
-public class UnidadMedida extends Base {
+public class Comercio extends Base {
 
-    private String denominacion;
-    private String abreviatura;
+    private String nombre;
+    private String notas;
 
 }
