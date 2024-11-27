@@ -10,9 +10,8 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
-public class UnidadMedida extends Base {
+public class TipoEnvase extends Base {
 
     private String denominacion;
-    private String abreviatura;
 
 }
