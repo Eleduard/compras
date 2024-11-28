@@ -33,26 +33,26 @@ public abstract class BaseService<T extends Base, ID extends Serializable> {
         }
     }
 
-    @Transactional(rollbackFor = Exception.class)
-    public T save(T entidad) throws Exception {
+    @Transactional(rollbackFor = RuntimeException.class)
+    public T save(T entidad) {
         try {
             return baseRepository.save(entidad);
         } catch(Exception e) {
-            throw new Exception("No se pudo grabar el registro: " + e.getMessage());
+            throw new RuntimeException("No se pudo grabar el registro: " + e.getMessage());
         }
     }
 
-    /*@Transactional(rollbackFor = Exception.class)
-    public T update(T entidad) throws Exception {
+    /*@Transactional(rollbackFor = RuntimeException.class)
+    public T update(T entidad) {
         try {
             return baseRepository.save(entidad);
         } catch(Exception e) {
-            throw new Exception("No se pudo grabar el registro: " + e.getMessage());
+            throw new RuntimeException("No se pudo grabar el registro: " + e.getMessage());
         }
     }*/
 
-    @Transactional(rollbackFor = Exception.class)
-    public boolean delete(ID id) throws Exception {
+    @Transactional(rollbackFor = RuntimeException.class)
+    public boolean delete(ID id) {
         try {
             T entidad = baseRepository.findById(id).orElseThrow(() -> new Exception("El registro con id " + id + " no existe."));
 
@@ -60,7 +60,7 @@ public abstract class BaseService<T extends Base, ID extends Serializable> {
 
             return true;
         } catch(Exception e) {
-            throw new Exception("No se pudo eliminar el registro: " + e.getMessage());
+            throw new RuntimeException("No se pudo eliminar el registro: " + e.getMessage());
         }
     }
 
