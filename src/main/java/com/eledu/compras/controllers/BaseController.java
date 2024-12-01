@@ -34,11 +34,7 @@ public abstract class BaseController<T extends Base, S extends BaseService<T, Lo
 
     @PostMapping("")
     public ResponseEntity<?> save(@RequestBody T entidad) {
-        try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.save(entidad));
-        } catch(Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
+        return ResponseEntity.status(HttpStatus.OK).body(service.save(entidad));
     }
 
     @PutMapping("{id}")

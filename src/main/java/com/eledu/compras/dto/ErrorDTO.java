@@ -1,7 +1,6 @@
 package com.eledu.compras.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
 @Data
 @Builder

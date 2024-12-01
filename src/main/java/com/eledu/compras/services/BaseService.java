@@ -37,7 +37,7 @@ public abstract class BaseService<T extends Base, ID extends Serializable> {
     public T save(T entidad) {
         try {
             return baseRepository.save(entidad);
-        } catch(Exception e) {
+        } catch(RuntimeException e) {
             throw new RuntimeException("No se pudo grabar el registro: " + e.getMessage());
         }
     }
