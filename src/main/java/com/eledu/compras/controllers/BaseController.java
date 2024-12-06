@@ -36,7 +36,7 @@ public abstract class BaseController<T extends Base, S extends BaseService<T, Lo
     public ResponseEntity<?> save(@RequestBody T entidad) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.save(entidad));
-        } catch(Exception e) {
+        } catch(RuntimeException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
