@@ -48,6 +48,7 @@ public abstract class BaseController<T extends Base, S extends BaseService<T, Lo
             if(searchedEntity == null) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Registro no encontrado.");
             } else {
+                entidad.setId(id);
                 return ResponseEntity.status(HttpStatus.OK).body(service.save(entidad));
             }
         } catch(Exception e) {
@@ -58,8 +59,14 @@ public abstract class BaseController<T extends Base, S extends BaseService<T, Lo
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete(@PathVariable Long id) {
         try {
-            service.delete(id);
-            return ResponseEntity.status(HttpStatus.OK).body("Se eliminó el registro.");
+            T searchedEntity = service.findById(id);
+            if(searchedEntity == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Registro no encontrado.");
+            } else {
+                searchedEntity.setEliminado(true);
+                update(searchedEntity.getId(), searchedEntity);
+                return ResponseEntity.status(HttpStatus.OK).body("Registro eliminado.");
+            }
         } catch(Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }

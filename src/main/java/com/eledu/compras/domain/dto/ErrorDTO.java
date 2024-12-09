@@ -1,4 +1,4 @@
-package com.eledu.compras.dto;
+package com.eledu.compras.domain.dto;
 
 import lombok.*;
 

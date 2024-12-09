@@ -1,6 +1,6 @@
 package com.eledu.compras.controllers;
 
-import com.eledu.compras.dto.ErrorDTO;
+import com.eledu.compras.domain.dto.ErrorDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
