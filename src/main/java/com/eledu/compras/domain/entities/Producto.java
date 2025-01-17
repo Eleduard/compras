@@ -12,7 +12,6 @@ import lombok.*;
 @Builder
 public class Producto extends Base {
 
-    private String nombreProducto;
     private String descripcion;
     private double cantidadPorEnvase;
     private boolean esSinTacc;
@@ -22,8 +21,8 @@ public class Producto extends Base {
     private TipoEnvase tipoEnvase;
 
     @ManyToOne
-    @JoinColumn(name = "categoria")
-    private Categoria categoria;
+    @JoinColumn(name = "tipo_producto")
+    private TipoProducto tipoProducto;
 
     @ManyToOne
     @JoinColumn(name = "marca")
@@ -32,5 +31,9 @@ public class Producto extends Base {
     @ManyToOne
     @JoinColumn(name = "unidad_medida")
     private UnidadMedida unidadMedida;
+
+    @ManyToOne
+    @JoinColumn(name = "promocion")
+    private Promocion promocion;
 
 }
