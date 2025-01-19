@@ -32,8 +32,4 @@ public class Producto extends Base {
     @JoinColumn(name = "unidad_medida")
     private UnidadMedida unidadMedida;
 
-    @ManyToOne
-    @JoinColumn(name = "promocion")
-    private Promocion promocion;
-
 }

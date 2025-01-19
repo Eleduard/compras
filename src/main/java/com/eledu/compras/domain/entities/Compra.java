@@ -1,9 +1,12 @@
 package com.eledu.compras.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
@@ -20,15 +23,13 @@ public class Compra extends Base {
     @JoinColumn(name = "comercio")
     private Comercio comercio;
 
-    /*
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(
-            name = "compra_producto",
-            joinColumns = @JoinColumn(name = "compra_id"),
-            inverseJoinColumns = @JoinColumn(name = "producto_id")
-    )
-    @Builder.Default
-    private Set<Producto> productos = new HashSet<>();
-     */
+    @ManyToOne
+    @JoinColumn(name = "promocion")
+    private Promocion promocion;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "compra_id")
+    @JsonManagedReference
+    private Set<DetalleCompra> itemsCompra = new HashSet<>();
 
 }
