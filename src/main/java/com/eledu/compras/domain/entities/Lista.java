@@ -15,21 +15,14 @@ import java.util.Set;
 @Setter
 @ToString
 @Builder
-public class Compra extends Base {
+public class Lista extends Base {
 
     private LocalDate fecha;
 
-    @ManyToOne
-    @JoinColumn(name = "comercio")
-    private Comercio comercio;
-
-    @ManyToOne
-    @JoinColumn(name = "promocion")
-    private Promocion promocion;
-
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "compra_id")
+    @JoinColumn(name = "lista_id")
     @JsonManagedReference
-    private Set<DetalleCompra> itemsCompra = new HashSet<>();
+    @Builder.Default
+    private Set<DetalleLista> itemsLista = new HashSet<>();
 
 }

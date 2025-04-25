@@ -13,22 +13,19 @@ import lombok.*;
 @Setter
 @ToString
 @Builder
-public class DetalleCompra extends Base {
+public class DetalleLista extends Base {
 
+    private double cantidadAComprar;
+    private double cantidadComprada;
     private double precio;
-    private double cantidad;
 
     @ManyToOne
-    @JoinColumn(name = "compra_id")
+    @JoinColumn(name = "lista_id")
     @JsonBackReference
-    private Compra compra;
+    private Lista lista;
 
     @ManyToOne
     @JoinColumn(name = "producto_id")
     private Producto producto;
-
-    @ManyToOne
-    @JoinColumn(name = "promocion")
-    private Promocion promocion;
 
 }
